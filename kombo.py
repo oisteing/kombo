@@ -25,34 +25,40 @@ def uordna_med(n,k):
 
 
 
-st.write("1: Ordna utvalg uten tilbakelegging")
-st.write("2: Ordna utvalg med tilbakelegging")
-st.write("3: Uordna utvalg uten tilbakelegging")
-st.write("4: Uordna utvalg med tilbakelegging")
+valg = st.selectbox(
+    "Velg modell her",
+    ("Ordna utvalg uten tilbakelegging", "Ordna utvalg med tilbakelegging", "Uordna utvalg uten tilbakelegging", "Uordna utvalg med tilbakelegging"),
+)
+st.divider()
 
-valg = int(st.number_input("Hva vil du gjøre? (1 - 4): ", value=1, max_value=4, min_value=1))
+
+#valg = int(st.number_input("Hva vil du gjøre? (1 - 4): ", value=1, max_value=4, min_value=1))
 a=b=1
 
-if valg==1:
-    st.write("Du har valgt 1... Ordna utvalg uten tilbakelegging. Skriv inn n og så r")
+if valg=="Ordna utvalg uten tilbakelegging":
+    st.header("Ordna utvalg utan tilbakelegging")
+    st.write("Her skal du gjere r valg på eit utfallsrom som har n moglege når du starter, men der du ikkje legg tilbake.  \nSkriv inn n og så r")
     a=int(st.number_input("n: ", value=1, min_value=b))
-    b=int(st.number_input("r: ",  min_value=1, max_value=a))
-    st.write(" Det er totalt ",ordna_uten(a,b), "mulige utvalg.")
+    b=int(st.number_input("r: ", value=a, min_value=1, max_value=a))
+    st.write("Når du har ",a," objekter og velger ",b," utan å leggje tilbake har du totalt ",ordna_uten(a,b), "mulige utvalg.")
 
-if valg==2:
-    st.write("Du har valgt 2... Ordna utvalg med tilbakelegging. Skriv inn n og så r")
+if valg=="Ordna utvalg med tilbakelegging":
+    st.header("Ordna utvalg med tilbakelegging")
+    st.write("Da skal du gjere r valg basert på et utfallsrom med n moglegheitar.\nEksempel er tippekupongen.  \nSkriv inn n og så r")
     a=int(st.number_input("n: ", value=1, min_value=1))
     b=int(st.number_input("r: ", value=1, min_value=1))
     st.write(" Det er totalt ",ordna_med(a,b), "mulige utvalg.")
 
-if valg==3:
-    st.write("Du har valgt 3... Uordna utvalg uten tilbakelegging. Skriv inn n og så r")
+if valg=="Uordna utvalg uten tilbakelegging":
+    st.header("Uordna utvalg uten tilbakelegging")
+    st.write("Da skal du gjere r valg ut frå n moglegheitar.  \n Eksempel er lottokupongen. Skriv inn n og så r")
     a=int(st.number_input("n: ", value=1, min_value=1))
-    b=int(st.number_input("r: ", value=1, min_value=1))
+    b=int(st.number_input("r: ", value=a, min_value=1, max_value=a))
     st.write(" Det er totalt ",uordna_uten(a,b), "mulige utvalg.")
 
-if valg==4:
-    st.write("Du har valgt 4... Uordna utvalg med tilbakelegging. Skriv inn n og så r")
+if valg=="Uordna utvalg med tilbakelegging":
+    st.header("Uordna utvalg med tilbakelegging")
+    st.write("Her skal du velge ut r frå ei mengde på n, men du legg tilbake det du velgjer kvar gong.  \nSkriv inn n og så r")
     a=int(st.number_input("n: ", value=1, min_value=1))
     b=int(st.number_input("r: ", value=1, min_value=1))
     st.write(" Det er totalt ",uordna_med(a,b), "mulige utvalg.")
