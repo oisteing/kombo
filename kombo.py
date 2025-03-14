@@ -7,7 +7,7 @@ st.write("Denne webappen er basert på dei fire tellemåtane i kombinatorikk")
 
 #st.logo("https://www.oisteing.com/images/logowww.png", link="https://www.oisteing.com")
 
-st.logo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXL74BGleH6oFgRBkKovXDFNTb0h5U46mhnQ&s", link="https://www.oisteing.com")
+st.logo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXL74BGleH6oFgRBkKovXDFNTb0h5U46mhnQ&s", link="https://www.github.com")
 
 
 def ordna_uten(n,r):
