@@ -1,15 +1,9 @@
 from math import *
 import streamlit as st
 
-st.title("Kombinatorikk")
-st.divider()
-st.write("Denne webappen er basert på dei fire tellemåtane i kombinatorikk")
 
-#st.logo("https://www.oisteing.com/images/logowww.png", link="https://www.oisteing.com")
-
-st.logo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXL74BGleH6oFgRBkKovXDFNTb0h5U46mhnQ&s", link="https://www.github.com")
-
-
+#a=1
+#b=1
 def ordna_uten(n,r):
     return(int(factorial(n)/factorial(n-r)))
 
@@ -19,46 +13,98 @@ def ordna_med(n,r):
 def uordna_uten(n,r):
     return(int(factorial(n)/(factorial(n-r)*factorial(r))))
 
-
 def uordna_med(n,k):
     return(int(factorial(n+k-1)/(factorial(n-1)*factorial(k))))
 
+#Sidebar
+options = ["Nynorsk", "Bokmål"]
+selection = st.sidebar.radio(" ", options)
+st.sidebar.write("(c) oisteing")
+
+# Dictionary for translations
+translations = {
+    "Nynorsk": {
+        "vel_modell": "Vel modell:",
+        "intro": "Denne webappen er basert på dei fire tellemåtane i kombinatorikk.",
+        "ordna_utan": "Ordna utval utan tilbakeleggjing",
+        "ordna_med": "Ordna utval med tilbakeleggjing",
+        "uordna_utan": "Uordna utval utan tilbakeleggjing",
+        "uordna_med": "Uordna utval med tilbakeleggjing",
+        "ordna_utan_tekst": "Her skal du gjere r valg på eit utfallsrom som har n moglege når du starter, men der du ikkje legg tilbake.  \nSkriv inn n og så r",
+        "ordna_med_tekst": "Da skal du gjere r valg ut frå n moglegheitar.  \n Eksempel er den gammeldagse fotballkupongen. Skriv inn n og så r",
+        "uordna_utan_tekst": "Her skal du gjere r valg på eit utfallsrom som har n moglege når du starter, men der du ikkje legg tilbake. Eksempel er lottokupongen. \nSkriv inn n og så r",
+        "uordna_med_tekst": "Her skal du gjere r valg på eit utfallsrom som har n moglege, og du legg tilbake det du trekkjer ut.  \nSkriv inn n og så r",
+    },
+    "Bokmål": {
+        "vel_modell": "Velg modell:",
+        "intro": "Denne webappen er basert på de fire tellemåtene i kombinatorikk.",
+        "ordna_utan": "Ordnet utvalg uten tilbakelegging",
+        "ordna_med": "Ordnet utvalg med tilbakelegging",
+        "uordna_utan": "Uordnet utvalg uten tilbakelegging",
+        "uordna_med": "Uordnet utvalg med tilbakelegging",
+        "ordna_utan_tekst": "Her skal du gjøre r valg på et utfallsrom som har n mulige når du starter, men der du ikke legger tilbake.  \nSkriv inn n og så r",
+        "ordna_med_tekst": "Her skal du foreta r valg på et utfallsrom som har n mulige. Her legger du tilbake det du trekker ut.  \nSkriv inn n og så r",
+        "uordna_utan_tekst": "Her skal du ta r valg på et utfallsrom som har n mulige når du starter, men der du ikke legger tilbake.  \nSkriv inn n og så r",
+        "uordna_med_tekst": "Her skal du foreta r valg på et utfallsrom som har n mulige, men her legger du tilbake det du trekker ut.  \nSkriv inn n og så r",
+    }
+}
+
+st.title("Kombinatorikk")
+st.sidebar.write(translations[selection]['intro'])
+
+#st.logo("https://www.oisteing.com/images/logowww.png", link="https://www.oisteing.com")
+st.logo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXL74BGleH6oFgRBkKovXDFNTb0h5U46mhnQ&s", link="https://www.github.com")
 
 
 valg = st.selectbox(
-    "Velg modell her",
-    ("Ordna utvalg uten tilbakelegging", "Ordna utvalg med tilbakelegging", "Uordna utvalg uten tilbakelegging", "Uordna utvalg med tilbakelegging"),
+    translations[selection]['vel_modell'],
+    (
+    translations[selection]['ordna_utan'], 
+    translations[selection]['ordna_med'], 
+    translations[selection]['uordna_utan'], 
+    translations[selection]['uordna_med']),
 )
 st.divider()
 
-
-#valg = int(st.number_input("Hva vil du gjøre? (1 - 4): ", value=1, max_value=4, min_value=1))
-a=b=1
-
-if valg=="Ordna utvalg uten tilbakelegging":
-    st.header("Ordna utvalg utan tilbakelegging")
-    st.write("Her skal du gjere r valg på eit utfallsrom som har n moglege når du starter, men der du ikkje legg tilbake.  \nSkriv inn n og så r")
-    a=int(st.number_input("n: ", value=1, min_value=b))
+if valg==translations[selection]['ordna_utan']:
+    b=1
+    st.header(translations[selection]['ordna_utan'])
+    st.write(translations[selection]['ordna_utan_tekst'])
+    a=int(st.number_input("n: ", key=1, value=1, min_value=b))
     b=int(st.number_input("r: ", value=a, min_value=1, max_value=a))
-    st.write("Når du har ",a," objekter og velger ",b," utan å leggje tilbake har du totalt ",ordna_uten(a,b), "mulige utvalg.")
+    translations["Bokmål"]['ordna_utan_svar']="Her har du "+ str(ordna_uten(a,b))+ " muligheter."
+    translations["Nynorsk"]['ordna_utan_svar']="Her har du "+ str(ordna_uten(a,b))+ " moglegheitar."
+    
+    st.write(translations[selection]['ordna_utan_svar'])
 
-if valg=="Ordna utvalg med tilbakelegging":
-    st.header("Ordna utvalg med tilbakelegging")
-    st.write("Da skal du gjere r valg basert på et utfallsrom med n moglegheitar.\nEksempel er tippekupongen.  \nSkriv inn n og så r")
+if valg==translations[selection]['ordna_med']:
+    st.header(translations[selection]['ordna_med'])
+    st.write(translations[selection]['ordna_med_tekst'])
+    a=int(st.number_input("n: ", key=2, value=1, min_value=1))
+    b=int(st.number_input("r: ", value=1, min_value=1))
+    translations["Bokmål"]['ordna_med_svar']="Her har du "+ str(ordna_med(a,b))+ " muligheter."
+    translations["Nynorsk"]['ordna_med_svar']="Her har du "+ str(ordna_med(a,b))+ " moglegheitar."
+    
+    st.write(translations[selection]['ordna_med_svar'])
+
+if valg==translations[selection]['uordna_utan']:
+    st.header(translations[selection]['uordna_utan'])
+    st.write(translations[selection]['uordna_utan_tekst'])
+    a=int(st.number_input("n: ", value=1, min_value=1))
+    b=int(st.number_input("r: ", value=a, min_value=1, max_value=a))
+    #Må sette inn keys til dictionaries her, for viss ikkje brukar den a,b=1 fra først i programmet.
+    translations["Bokmål"]['uordna_utan_svar']="Her har du "+ str(uordna_uten(a,b))+ " muligheter."
+    translations["Nynorsk"]['uordna_utan_svar']="Her har du "+ str(uordna_uten(a,b))+ " moglegheitar."
+    
+    st.write(translations[selection]['uordna_utan_svar'])
+
+if valg==translations[selection]['uordna_med']:
+    st.header(translations[selection]['uordna_med'])
+    st.write(translations[selection]['uordna_med_tekst'])
     a=int(st.number_input("n: ", value=1, min_value=1))
     b=int(st.number_input("r: ", value=1, min_value=1))
-    st.write(" Det er totalt ",ordna_med(a,b), "mulige utvalg.")
-
-if valg=="Uordna utvalg uten tilbakelegging":
-    st.header("Uordna utvalg uten tilbakelegging")
-    st.write("Da skal du gjere r valg ut frå n moglegheitar.  \n Eksempel er lottokupongen. Skriv inn n og så r")
-    a=int(st.number_input("n: ", value=1, min_value=1))
-    b=int(st.number_input("r: ", value=a, min_value=1, max_value=a))
-    st.write(" Det er totalt ",uordna_uten(a,b), "mulige utvalg.")
-
-if valg=="Uordna utvalg med tilbakelegging":
-    st.header("Uordna utvalg med tilbakelegging")
-    st.write("Her skal du velge ut r frå ei mengde på n, men du legg tilbake det du velgjer kvar gong.  \nSkriv inn n og så r")
-    a=int(st.number_input("n: ", value=1, min_value=1))
-    b=int(st.number_input("r: ", value=1, min_value=1))
-    st.write(" Det er totalt ",uordna_med(a,b), "mulige utvalg.")
+    
+    translations["Bokmål"]['uordna_med_svar']="Her har du "+ str(uordna_med(a,b))+ " muligheter."
+    translations["Nynorsk"]['uordna_med_svar']="Her har du "+ str(uordna_med(a,b))+ " moglegheitar."
+    
+    st.write(translations[selection]['uordna_med_svar'])
