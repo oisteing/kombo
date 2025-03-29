@@ -19,7 +19,7 @@ def uordna_med(n,k):
 #Sidebar
 options = ["Nynorsk", "Bokmål"]
 selection = st.sidebar.radio(" ", options)
-st.sidebar.write("(c) oisteing")
+st.sidebar.write("(c)2025 oisteing")
 
 # Dictionary for translations
 translations = {
@@ -57,22 +57,13 @@ translations = {
     }
 }
 
-st.title("Kombinatorikk")
+st.title("Kombokalk online")
 st.sidebar.write(translations[selection]['intro'])
 
 #st.logo("https://www.oisteing.com/images/logowww.png", link="https://www.oisteing.com")
 #st.logo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXL74BGleH6oFgRBkKovXDFNTb0h5U46mhnQ&s", link="https://www.github.com")
 
-
-#valg = st.selectbox(
-#    translations[selection]['vel_modell'],
-#    (
-#    translations[selection]['ordna_utan'], 
-#    translations[selection]['ordna_med'], 
-#    translations[selection]['uordna_utan'], 
-#    translations[selection]['uordna_med']),
-#)
-#st.divider()
+st.divider()
 
 
 # Radioknapp for utvalgstype
@@ -84,28 +75,18 @@ utvalgstype = st.radio(
 # Avkrysningsboks for tilbakelegging
 med_tilbakelegging = st.checkbox(translations[selection]['med'])
 
-if utvalgstype==translations[selection]['uordna'] and med_tilbakelegging==True:
-    valg = translations[selection]['uordna_med']
-if utvalgstype==translations[selection]['uordna'] and med_tilbakelegging==False:
-    valg = translations[selection]['uordna_utan']
-if utvalgstype==translations[selection]['ordna'] and med_tilbakelegging==True:
-    valg = translations[selection]['ordna_med']
 if utvalgstype==translations[selection]['ordna'] and med_tilbakelegging==False:
-    valg = translations[selection]['ordna_utan']
-
-
-if valg==translations[selection]['ordna_utan']:
-    b=1
+    #b=1
     st.header(translations[selection]['ordna_utan'])
     st.write(translations[selection]['ordna_utan_tekst'])
-    a=int(st.number_input("n: ", key=1, value=1, min_value=b, max_value=100))
+    a=int(st.number_input("n: ", key=1, value=1, min_value=1, max_value=100))
     b=int(st.number_input("r: ", value=a, min_value=0, max_value=a))
     translations["Bokmål"]['ordna_utan_svar']="Her har du "+ str(ordna_uten(a,b))+ " muligheter."
     translations["Nynorsk"]['ordna_utan_svar']="Her har du "+ str(ordna_uten(a,b))+ " moglegheitar."
     
     st.write(translations[selection]['ordna_utan_svar'])
 
-if valg==translations[selection]['ordna_med']:
+if utvalgstype==translations[selection]['ordna'] and med_tilbakelegging==True:
     st.header(translations[selection]['ordna_med'])
     st.write(translations[selection]['ordna_med_tekst'])
     a=int(st.number_input("n: ", key=2, value=1, min_value=1, max_value=100))
@@ -115,7 +96,7 @@ if valg==translations[selection]['ordna_med']:
     
     st.write(translations[selection]['ordna_med_svar'])
 
-if valg==translations[selection]['uordna_utan']:
+if utvalgstype==translations[selection]['uordna'] and med_tilbakelegging==False:
     st.header(translations[selection]['uordna_utan'])
     st.write(translations[selection]['uordna_utan_tekst'])
     a=int(st.number_input("n: ", value=1, min_value=1, max_value=100))
@@ -127,7 +108,7 @@ if valg==translations[selection]['uordna_utan']:
     
     st.write(translations[selection]['uordna_utan_svar'])
 
-if valg==translations[selection]['uordna_med']:
+if utvalgstype==translations[selection]['uordna'] and med_tilbakelegging==True:
     st.header(translations[selection]['uordna_med'])
     st.write(translations[selection]['uordna_med_tekst'])
     a=int(st.number_input("n: ", value=1, min_value=0, max_value=100))
