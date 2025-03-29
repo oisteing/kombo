@@ -99,7 +99,7 @@ if valg==translations[selection]['ordna_utan']:
     st.header(translations[selection]['ordna_utan'])
     st.write(translations[selection]['ordna_utan_tekst'])
     a=int(st.number_input("n: ", key=1, value=1, min_value=b, max_value=100))
-    b=int(st.number_input("r: ", value=a, min_value=1, max_value=a))
+    b=int(st.number_input("r: ", value=a, min_value=0, max_value=a))
     translations["Bokmål"]['ordna_utan_svar']="Her har du "+ str(ordna_uten(a,b))+ " muligheter."
     translations["Nynorsk"]['ordna_utan_svar']="Her har du "+ str(ordna_uten(a,b))+ " moglegheitar."
     
@@ -119,8 +119,9 @@ if valg==translations[selection]['uordna_utan']:
     st.header(translations[selection]['uordna_utan'])
     st.write(translations[selection]['uordna_utan_tekst'])
     a=int(st.number_input("n: ", value=1, min_value=1, max_value=100))
-    b=int(st.number_input("r: ", value=a, min_value=1, max_value=a))
+    b=int(st.number_input("r: ", value=a, min_value=0, max_value=a))
     #Må sette inn keys til dictionaries her, for viss ikkje brukar den a,b=1 fra først i programmet.
+    
     translations["Bokmål"]['uordna_utan_svar']="Her har du "+ str(uordna_uten(a,b))+ " muligheter."
     translations["Nynorsk"]['uordna_utan_svar']="Her har du "+ str(uordna_uten(a,b))+ " moglegheitar."
     
@@ -129,10 +130,10 @@ if valg==translations[selection]['uordna_utan']:
 if valg==translations[selection]['uordna_med']:
     st.header(translations[selection]['uordna_med'])
     st.write(translations[selection]['uordna_med_tekst'])
-    a=int(st.number_input("n: ", value=1, min_value=1,max_value=100))
+    a=int(st.number_input("n: ", value=1, min_value=0, max_value=100))
     b=int(st.number_input("r: ", value=1, min_value=1))
     
-    translations["Bokmål"]['uordna_med_svar']="Her har du "+ str(uordna_med(a,b))+ " muligheter."
-    translations["Nynorsk"]['uordna_med_svar']="Her har du "+ str(uordna_med(a,b))+ " moglegheitar."
-    
-    st.write(translations[selection]['uordna_med_svar'])
+    if a>0:
+        translations["Bokmål"]['uordna_med_svar']="Her har du "+ str(uordna_med(a,b))+ " muligheter."
+        translations["Nynorsk"]['uordna_med_svar']="Her har du "+ str(uordna_med(a,b))+ " moglegheitar."
+        st.write(translations[selection]['uordna_med_svar'])
