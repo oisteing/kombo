@@ -18,7 +18,7 @@ def uordna_med(n,k):
 #Sidebar
 options = ["Nynorsk", "Bokmål"]
 selection = st.sidebar.radio(" ", options)
-st.sidebar.write("(c)2025 oisteing")
+st.sidebar.write("(c)2025 ØG")
 
 # Dictionary for translations
 translations = {
@@ -33,10 +33,10 @@ translations = {
         "ordna_med": "Ordna utval med tilbakelegging",
         "uordna_utan": "Uordna utval utan tilbakelegging",
         "uordna_med": "Uordna utval med tilbakelegging",
-        "ordna_utan_tekst": "Her skal du gjere r val på ei mengde som har n moglege når du startar, men der du ikkje legg tilbake.  \nSkriv inn n og så r",
-        "ordna_med_tekst": "Da skal du gjere r val ut frå n moglegheitar.  \n Eksempel er den gammaldagse fotballkupongen. Skriv inn n og så r",
-        "uordna_utan_tekst": "No skal du gjere r val på ei mengde som har n moglege når du startar, men der du ikkje legg tilbake. Eksempel er lottokupongen. \nSkriv inn n og så r",
-        "uordna_med_tekst": "Her skal du gjere r val på ei mengde som har n moglege, og du legg tilbake det du trekkjer ut.  \nSkriv inn n og så r",
+        "ordna_utan_tekst": "Her skal du gjere r val på ei mengde som har n moglege når du startar, men der du ikkje legg tilbake.  \nSkriv inn n og så r.",
+        "ordna_med_tekst": "Da skal du gjere r val ut frå n moglegheitar.  \nSkriv inn n og så r.",
+        "uordna_utan_tekst": "No skal du gjere r val på ei mengde som har n moglege når du startar, men der du ikkje legg tilbake. \nSkriv inn n og så r.",
+        "uordna_med_tekst": "Her skal du gjere r val på ei mengde som har n moglege, og du legg tilbake det du trekkjer ut.  \nSkriv inn n og så r.",
     },
     "Bokmål": {
         "vel_modell": "Velg modell:",
@@ -49,10 +49,10 @@ translations = {
         "ordna_med": "Ordnet utvalg med tilbakelegging",
         "uordna_utan": "Uordnet utvalg uten tilbakelegging",
         "uordna_med": "Uordnet utvalg med tilbakelegging",
-        "ordna_utan_tekst": "Her skal du gjøre r valg på en mengde som har n mulige når du starter, men der du ikke legger tilbake.  \nSkriv inn n og så r",
-        "ordna_med_tekst": "Her skal du foreta r valg på en mengde som har n mulige. Her legger du tilbake det du trekker ut.  \nSkriv inn n og så r",
-        "uordna_utan_tekst": "Her skal du ta r valg på en mengde som har n mulige når du starter, men der du ikke legger tilbake.  \nSkriv inn n og så r",
-        "uordna_med_tekst": "Her skal du foreta r valg på en mengde som har n mulige, men her legger du tilbake det du trekker ut.  \nSkriv inn n og så r",
+        "ordna_utan_tekst": "Her skal du gjøre r valg på en mengde som har n mulige når du starter, men der du ikke legger tilbake.  \nSkriv inn n og så r.",
+        "ordna_med_tekst": "Her skal du foreta r valg på en mengde som har n mulige. Her legger du tilbake det du trekker ut.  \nSkriv inn n og så r.",
+        "uordna_utan_tekst": "Her skal du ta r valg på en mengde som har n mulige når du starter, men der du ikke legger tilbake.  \nSkriv inn n og så r.",
+        "uordna_med_tekst": "Her skal du foreta r valg på en mengde som har n mulige, men her legger du tilbake det du trekker ut.  \nSkriv inn n og så r.",
     }
 }
 
