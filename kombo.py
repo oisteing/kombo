@@ -1,7 +1,6 @@
 from math import *
 import streamlit as st
 
-
 #a=1
 #b=1
 def ordna_uten(n,r):
@@ -25,19 +24,19 @@ st.sidebar.write("(c)2025 oisteing")
 translations = {
     "Nynorsk": {
         "vel_modell": "Vel modell:",
-        "intro": "Denne webappen er basert på dei fire tellemåtane i kombinatorikk.",
+        "intro": "Denne webappen er basert på dei fire teljemåtane i kombinatorikk.",
         "ordna": "Ordna utval",
         "uordna": "Uordna utval",
-        "utan": "utan tilbakeleggjing",
-        "med": "med tilbakeleggjing",
-        "ordna_utan": "Ordna utval utan tilbakeleggjing",
-        "ordna_med": "Ordna utval med tilbakeleggjing",
-        "uordna_utan": "Uordna utval utan tilbakeleggjing",
-        "uordna_med": "Uordna utval med tilbakeleggjing",
-        "ordna_utan_tekst": "Her skal du gjere r valg på ei mengd som har n moglege når du starter, men der du ikkje legg tilbake.  \nSkriv inn n og så r",
-        "ordna_med_tekst": "Da skal du gjere r valg ut frå n moglegheitar.  \n Eksempel er den gammaldagse fotballkupongen. Skriv inn n og så r",
-        "uordna_utan_tekst": "Her skal du gjere r valg på ei mengd som har n moglege når du starter, men der du ikkje legg tilbake. Eksempel er lottokupongen. \nSkriv inn n og så r",
-        "uordna_med_tekst": "Her skal du gjere r valg på ei mengd som har n moglege, og du legg tilbake det du trekkjer ut.  \nSkriv inn n og så r",
+        "utan": "utan tilbakelegging",
+        "med": "med tilbakelegging",
+        "ordna_utan": "Ordna utval utan tilbakelegging",
+        "ordna_med": "Ordna utval med tilbakelegging",
+        "uordna_utan": "Uordna utval utan tilbakelegging",
+        "uordna_med": "Uordna utval med tilbakelegging",
+        "ordna_utan_tekst": "Her skal du gjere r val på ei mengde som har n moglege når du startar, men der du ikkje legg tilbake.  \nSkriv inn n og så r",
+        "ordna_med_tekst": "Da skal du gjere r val ut frå n moglegheitar.  \n Eksempel er den gammaldagse fotballkupongen. Skriv inn n og så r",
+        "uordna_utan_tekst": "No skal du gjere r val på ei mengde som har n moglege når du startar, men der du ikkje legg tilbake. Eksempel er lottokupongen. \nSkriv inn n og så r",
+        "uordna_med_tekst": "Her skal du gjere r val på ei mengde som har n moglege, og du legg tilbake det du trekkjer ut.  \nSkriv inn n og så r",
     },
     "Bokmål": {
         "vel_modell": "Velg modell:",
